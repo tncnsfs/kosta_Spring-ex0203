@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation=
+		"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+<!-- 	<bean id="oracleDao" class="kosta.OracleDao"/>
+	<bean id="MySql" class="kosta.MySql"></bean>
+ -->	
+ 
+ 	<context:annotation-config/>
+ 	<!-- component-scan 이것은 무조건 자동: inject, Autowird -->
+	<context:component-scan base-package="kosta"/>
+	<!-- 스프링컨테이너 안에 생성된 객체가 있음  -->	
+ 	<!-- @Controller, @Service @Repository, @Conponent 선언하여 표시한것을 스캔함 , 자동으로 객체가 생성  -->
+
+	<bean id="service" class="kosta.WriteService">
+		<!-- <constructor-arg ref="MySql"/> -->
+		<!-- <property name="dao" ref="oracleDao"></property> -->
+	</bean>
+	
+	
+
+
+</beans>
