@@ -107,7 +107,7 @@
 				<Context docBase="Sugjie01" path="/Sugjie01" reloadable="true" source="org.eclipse.jst.jee.server:Sugjie01">
 					<Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/oracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="kosta192"/>
 				</Context>
-			</Host>
+			<Context docBase="Spring_basic2" path="/Spring_basic2" reloadable="true" source="org.eclipse.jst.jee.server:Spring_basic2"/></Host>
 		</Engine>
 	</Service>
 </Server>
