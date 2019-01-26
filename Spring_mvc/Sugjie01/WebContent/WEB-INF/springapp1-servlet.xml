@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
+
+
+
+	<context:annotation-config/>
+	<context:component-scan base-package="kosta"></context:component-scan>
+
+	<mvc:annotation-driven/>
+	<mvc:default-servlet-handler/> <!-- 컨트롤러에 없는 url이 요청되더라도 톰캣(was)가 실행할 수 잇다면 그냥 둬라. 즉, index.html도 실행 -->
+  <!-- 	<bean id="helloController" class="kosta.controller.HelloController">
+		<property name="service" ref="helloService"/>
+	</bean>
+	
+	<bean id="helloService" class="kosta.service.HelloService"></bean> -->
+	
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">	<!--jsp는 internalresourceviewresolver -->
+		<property name="prefix" value="/view/"/>
+		<property name="suffix" value=".jsp"/>
+	
+	</bean>
+	
+	<!-- MyBatis Setting(템플릿) -->
+	<!-- 최종적으로 필요한건 sqlsession템플릿 -->
+	<bean id="sqlSessionTemplate"
+	class="org.mybatis.spring.SqlSessionTemplate">
+	<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/> <!-- ref는 밑의 bean id에서 오는 것. -->
+	</bean>
+	
+	<bean id="sqlSessionFactory" 
+	class="org.mybatis.spring.SqlSessionFactoryBean">
+	<property name="dataSource" ref="dataSource"></property>
+	<property name="configLocation"
+		value="/WEB-INF/mybatis-config.xml"/>
+	</bean>
+	
+	<bean id="dataSource"
+		class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="jdbc/oracle"/>
+		<property name="resourceRef" value="true"/>
+	</bean>
+
+</beans>
