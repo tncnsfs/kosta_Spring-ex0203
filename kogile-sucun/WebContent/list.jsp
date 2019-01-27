@@ -42,12 +42,11 @@
 		</tr>
 		<c:forEach var="cls" items="${checklist}">
 			<tr>
-				<td>${cls.checklist_no }</td>
-				
 				<td>
-				<%-- <a href="list20.do?checklist_no=${cls.checklist_no }">${cls.check_title} --%>
-				<a href="detail.do?checklist_no=${cls.checklist_no }">${cls.check_title}
-				<%-- <input type="hidden" name="checklist_no" value="${ls.checklist_no }"> --%>
+				<a href="detail.do?checklist_no=${cls.checklist_no }">
+				${cls.checklist_no }</a></td>
+				<td>
+				<a href="list20.do?checklist_no=${cls.checklist_no }">${cls.check_title}
 				</a>
 				
 				</td>

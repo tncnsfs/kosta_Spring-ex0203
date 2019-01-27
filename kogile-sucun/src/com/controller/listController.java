@@ -42,10 +42,7 @@ public class listController extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		String requestURI = request.getRequestURI();
 		String contextPath = request.getContextPath();
-		System.out.println("requestURI" + requestURI);
-		System.out.println("contextPath" + contextPath);
 		String command = requestURI.substring(contextPath.length()+1);
-		System.out.println("command :" + command + "\n");
 		
 		Action action = null;
 		ActionForward forward = null;

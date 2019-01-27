@@ -112,7 +112,7 @@
 			
 			<Context docBase="Sugjie02" path="/Sugjie02" reloadable="true" source="org.eclipse.jst.jee.server:Sugjie02">
 				<Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/oracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="kosta192"/>
-			</Context></Host>
+			</Context><Context docBase="kogile-sucun" path="/kogile-sucun" reloadable="true" source="org.eclipse.jst.jee.server:kogile-sucun"/></Host>
 		</Engine>
 	</Service>
 </Server>
