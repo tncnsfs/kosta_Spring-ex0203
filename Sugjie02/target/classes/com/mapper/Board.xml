@@ -15,29 +15,19 @@
 	
 	<select id="listBoard" resultType="Board" >
 		select * from board
-		<!-- <if test="area != null">
-			<where>
-				<foreach collection="area" item="item" separator="or"
-					open="(" close=")">
-					title LIKE %aa% or writer LIKE %aa%
-					${item}	LIKE #{searchKey}
-				</foreach>
-			</where>
-		</if>
-		 -->
 	</select>
 	
 	
-	<select id="getBoard" parameterType="int" resultType="Board">
+	<select id="detailBoard" parameterType="int" resultType="Board">
 		select * from board where seq = #{seq}
 	</select>
 	
 	
 	
-	<update id="updateBoard" parameterType="Board">
+<!-- 	<update id="updateBoard" parameterType="Board">
 		update board set title=#{title}, contents=#{contents}
 			where seq = #{seq}
-	</update> 
+	</update>  -->
 
 
 </mapper>

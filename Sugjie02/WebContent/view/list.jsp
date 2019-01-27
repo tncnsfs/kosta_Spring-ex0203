@@ -14,6 +14,7 @@
 			<td>번호</td>
 			<td>제목</td>
 			<td>작성자</td>
+			<td>내용></td>
 			<td>조회수</td>
 			<td>등록일</td>
 		</tr>
@@ -23,12 +24,12 @@
 				<td>${board.seq }</td>
 					
 				<td>
-				<input type="hidden" name="seq">
-				<a href="board_detail.do?seq=${board.seq }"> 
+				<a href="detail.do?seq=${board.seq }"> 
 					${board.title }
 				</a>
 				</td>
 				<td>${board.writer }</td>
+				<td>${board.contents }</td>
 				<td>${board.hitcount }</td>
 				<td>${board.regdate }</td>
 			</tr>

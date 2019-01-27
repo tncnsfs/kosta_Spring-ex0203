@@ -12,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.model.Board;
 import com.model.BoardDao;
@@ -71,16 +72,24 @@ public class BoardController {
 	}
 	
 	
-//	@RequestMapping(value="/board_detail.do", method=RequestMethod.GET)
-	@RequestMapping("/board_detail.do")
-	public Board board_detail(Model model, int seq){
-		
+//	@RequestMapping(value="/board_detail.do", method=RequestMethod.POST)
+	@RequestMapping("/detail.do")
+	public ModelAndView detailBoard(int seq){
+		ModelAndView mv = new ModelAndView();
+			
+		mv.setViewName("detail");
 		Board board = dao.detailBoard(seq);
-		model.addAttribute("seq", seq);
+		System.out.println("seq¸¦: " + seq);
 		
-		return board;
+		mv.addObject("seq", board.getSeq());
+		mv.addObject("title", board.getTitle());
+		mv.addObject("writer", board.getWriter());
+		mv.addObject("contents", board.getContents());
+		System.out.println("board.getSeq: " + board.getSeq());
+		System.out.println("board.getTitle" + board.getTitle());
+		
+		
+		return mv;
 	}
-	
-	
 	
 }

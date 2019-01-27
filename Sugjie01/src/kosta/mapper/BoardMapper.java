@@ -7,8 +7,7 @@ import kosta.model.Board;
 public interface BoardMapper {
 	int insertBoard(Board board);
 	List<Board> listBoard();
-	Board getBoard(int seq);
-	int updateBoard(Board board);
+	Board detailBoard(int seq);
 }
 
 
