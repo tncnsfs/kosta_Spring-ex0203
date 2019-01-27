@@ -25,6 +25,10 @@ public class BoardDao {
 		sqlTemplate.getMapper(BoardMapper.class).updateBoard(board);
 	}
 	
+	public void deleteBoard(Board board){
+		sqlTemplate.getMapper(BoardMapper.class).deleteBoard(board);
+	}
+	
 	
 	public List<Board> listBoard(){
 		return sqlTemplate.getMapper(BoardMapper.class).listBoard();

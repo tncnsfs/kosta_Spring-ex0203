@@ -11,7 +11,7 @@ public interface BoardMapper {
 	List<Board> listBoard();
 	Board detailBoard(int seq);
 	int updateBoard(Board board);
-/*	int deleteBoard(Board board);*/
+	int deleteBoard(Board board);
 }
 
 

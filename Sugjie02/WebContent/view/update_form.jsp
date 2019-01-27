@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 
-<h3>${seq }</h3>
+<h3>${message1 }</h3>
 <body>
 <form:form action="board_update.do" method="post" commandName="boardCommand">
 <!-- 	작성자 : <form:input type="text" path="writer"/>

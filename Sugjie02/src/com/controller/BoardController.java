@@ -29,6 +29,8 @@ public class BoardController {
 		return "insert_form";
 	}*/
 	
+	
+	
 	@RequestMapping(value="/board_insert.do", method=RequestMethod.GET)
 	public String insertform(@ModelAttribute("boardCommand") Board board, Model model){ 
 		//데이터타입이 string이라면 , Model에서 받는다. 즉, 데이터 받는방법 데이터타입2가지 : modelandview, string-model
@@ -40,7 +42,7 @@ public class BoardController {
 	@RequestMapping(value="/board_update.do", method=RequestMethod.GET)
 	public String update_form(@ModelAttribute("boardCommand") Board board, Model model){ 
 		//데이터타입이 string이라면 , Model에서 받는다. 즉, 데이터 받는방법 데이터타입2가지 : modelandview, string-model
-		model.addAttribute("seq", "수정글쓰기");
+		model.addAttribute("message1", "수정글쓰기");
 		
 		return "update_form";
 	}
@@ -72,20 +74,23 @@ public class BoardController {
 	}
 	
 	
+	
+	
 /*	@RequestMapping(value="/board_update.do", method=RequestMethod.POST)
-	public String board_update(@ModelAttribute("boardCommand") @Valid Board board, BindingResult errors){
+	public String board_update(@ModelAttribute("boardCommand") @Valid Board board, BindingResult errors){ 
 		
 		if(errors.hasErrors()) //바인딩 객체에 에러가 있냐
 		{
 			System.out.println("에러 발생");
 			return "update_form";
+			
 		}
-		
 		dao.updateBoard(board);
 		
 		return "redirect:board_list.do";
-		
 	}*/
+	
+	
 	
 //	@RequestMapping(value="/board_list.do", method=RequestMethod.GET)
 	@RequestMapping("/board_list.do")
@@ -102,7 +107,6 @@ public class BoardController {
 	@RequestMapping("/detail.do")
 	public ModelAndView detailBoard(int seq){
 		ModelAndView mv = new ModelAndView();
-			
 		mv.setViewName("detail");
 		Board board = dao.detailBoard(seq);
 		System.out.println("seq를: " + seq);
@@ -112,21 +116,10 @@ public class BoardController {
 		mv.addObject("writer", board.getWriter());
 		mv.addObject("contents", board.getContents());
 		System.out.println("board.getSeq: " + board.getSeq());
-		System.out.println("board.getTitle" + board.getTitle());
-		
-		
 		return mv;
 	}
 	
-	@RequestMapping("/board_update.do")
-	public ModelAndView updateBoard(Board board){
-		
-		ModelAndView mv = new ModelAndView();
-		
-		
-		
-		return null;
-		
-	}
+
+	
 	
 }
