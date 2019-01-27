@@ -55,7 +55,15 @@ public class BoardController {
 		}
 		dao.insert(board);
 		
-		return "redirect:board_list";
+		return "redirect:board_list.do";
+	}
+	
+	@RequestMapping(value ="/detail.do", method= RequestMethod.POST)
+	public String detail(@ModelAttribute("boardCommand")int seq){
+		
+		Board board = dao.getBoard(seq);
+		
+		return "board";
 	}
 	
 	
@@ -68,19 +76,11 @@ public class BoardController {
 		model.addAttribute("list", list);
 		
 		return "list";
+//		return 	"redirect:detail.do";
 		//뷰 이름 정하기
 	}
 	
-/*	@RequestMapping("detail.do")
-	public String detail(Model model){
-		
-		Board board = dao.getBoard(seq);
-		
-		model.addAttribute("board", board);
-		
-		return "board";
-		
-	}*/
+	
 	
 	
 	
