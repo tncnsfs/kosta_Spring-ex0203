@@ -11,11 +11,16 @@
 <h3>${seq }</h3>
 <body>
 <form:form action="board_update.do" method="post" commandName="boardCommand">
+<!-- 	작성자 : <form:input type="text" path="writer"/>
+			<form:errors path="writer" cssClass="error"></form:errors><br>		
+ -->
+ 	<input type="hidden" name="${seq }"/>		
 	제목 : <form:input type="text" path="title"/>
+		<form:errors path="title" cssClass="error"></form:errors><br>		
 	내용 <br>
 	<form:textarea rows="6" cols="70" path="contents"/>
 	<br>
-	<input type="submit" value="수정">
+	<input type="submit" value="등록">
 </form:form>
 </body>
 </html>

@@ -72,7 +72,7 @@ public class BoardController {
 	}
 	
 	
-	@RequestMapping(value="/board_update.do", method=RequestMethod.POST)
+/*	@RequestMapping(value="/board_update.do", method=RequestMethod.POST)
 	public String board_update(@ModelAttribute("boardCommand") @Valid Board board, BindingResult errors){
 		
 		if(errors.hasErrors()) //바인딩 객체에 에러가 있냐
@@ -85,7 +85,7 @@ public class BoardController {
 		
 		return "redirect:board_list.do";
 		
-	}
+	}*/
 	
 //	@RequestMapping(value="/board_list.do", method=RequestMethod.GET)
 	@RequestMapping("/board_list.do")
@@ -116,6 +116,17 @@ public class BoardController {
 		
 		
 		return mv;
+	}
+	
+	@RequestMapping("/board_update.do")
+	public ModelAndView updateBoard(Board board){
+		
+		ModelAndView mv = new ModelAndView();
+		
+		
+		
+		return null;
+		
 	}
 	
 }
