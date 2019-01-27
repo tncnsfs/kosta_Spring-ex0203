@@ -37,6 +37,15 @@ public class BoardController {
 		return "insert_form";
 	}
 	
+	@RequestMapping(value="/board_update.do", method=RequestMethod.GET)
+	public String update_form(@ModelAttribute("boardCommand") Board board, Model model){ 
+		//데이터타입이 string이라면 , Model에서 받는다. 즉, 데이터 받는방법 데이터타입2가지 : modelandview, string-model
+		model.addAttribute("seq", "수정글쓰기");
+		
+		return "update_form";
+	}
+	
+	
 	public BoardDao getDao() {
 		return dao;
 	}
@@ -44,6 +53,9 @@ public class BoardController {
 	public void setDao(BoardDao dao) {
 		this.dao = dao;
 	}
+	
+
+	
 
 	@RequestMapping(value="/board_insert.do", method=RequestMethod.POST)
 	public String board_insert(@ModelAttribute("boardCommand") @Valid Board board, BindingResult errors){ 
@@ -54,11 +66,26 @@ public class BoardController {
 			return "insert_form";
 			
 		}
-		dao.insert(board);
+		dao.insertBoard(board);
 		
 		return "redirect:board_list.do";
 	}
 	
+	
+	@RequestMapping(value="/board_update.do", method=RequestMethod.POST)
+	public String board_update(@ModelAttribute("boardCommand") @Valid Board board, BindingResult errors){
+		
+		if(errors.hasErrors()) //바인딩 객체에 에러가 있냐
+		{
+			System.out.println("에러 발생");
+			return "update_form";
+		}
+		
+		dao.updateBoard(board);
+		
+		return "redirect:board_list.do";
+		
+	}
 	
 //	@RequestMapping(value="/board_list.do", method=RequestMethod.GET)
 	@RequestMapping("/board_list.do")
@@ -72,7 +99,6 @@ public class BoardController {
 	}
 	
 	
-//	@RequestMapping(value="/board_detail.do", method=RequestMethod.POST)
 	@RequestMapping("/detail.do")
 	public ModelAndView detailBoard(int seq){
 		ModelAndView mv = new ModelAndView();

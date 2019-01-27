@@ -17,8 +17,12 @@ public class BoardDao {
 		this.sqlTemplate = sqlTemplate;
 	}
 	
-	public void insert(Board board){
+	public void insertBoard(Board board){
 		sqlTemplate.getMapper(BoardMapper.class).insertBoard(board);
+	}
+	
+	public void updateBoard(Board board){
+		sqlTemplate.getMapper(BoardMapper.class).updateBoard(board);
 	}
 	
 	

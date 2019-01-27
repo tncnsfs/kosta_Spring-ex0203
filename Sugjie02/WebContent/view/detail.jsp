@@ -14,15 +14,12 @@
 		<li>작성자: ${writer }</li>		
 		<li>내용: ${contents }</li>
 		<li>
-			<a href="board_insert.do?seq=${seq }">등록</a>
-			<a href="updateForm.do?seq=${seq }">수정</a>
+			<a href="board_insert.do">등록</a>
+			<a href="board_update.do?seq=${seq }">수정</a>
 			<a href="delete.do?seq=${seq }">삭제</a>
 			<a href="board_list.do">목록</a>
 		</li>
 	</ul>
-	
-	
-	
 	
 </body>
 </html>

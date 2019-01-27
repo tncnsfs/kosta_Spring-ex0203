@@ -24,11 +24,16 @@
 	
 	
 	
-<!-- 	<update id="updateBoard" parameterType="Board">
+	<update id="updateBoard" parameterType="Board">
 		update board set title=#{title}, contents=#{contents}
 			where seq = #{seq}
-	</update>  -->
-
+	</update> 
+	
+<!-- 	<delete id="deleteBoard" parameterType="Board">
+		delete from board 
+		where seq = #{seq}
+	</delete>
+ -->
 
 </mapper>
 
