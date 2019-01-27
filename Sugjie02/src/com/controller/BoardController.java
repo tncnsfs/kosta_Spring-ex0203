@@ -2,6 +2,7 @@ package com.controller;
 
 import java.util.List;
 
+import javax.jws.WebParam.Mode;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,8 @@ public class BoardController {
 	}*/
 	
 	@RequestMapping(value="/board_insert.do", method=RequestMethod.GET)
-	public String insertform(@ModelAttribute("boardCommand") Board board, Model model){ //데이터타입이 string이라면 , Model에서 받는다. 즉, 데이터 받는방법 데이터타입2가지 : modelandview, string-model
+	public String insertform(@ModelAttribute("boardCommand") Board board, Model model){ 
+		//데이터타입이 string이라면 , Model에서 받는다. 즉, 데이터 받는방법 데이터타입2가지 : modelandview, string-model
 		model.addAttribute("title", "글쓰기2");
 		
 		return "insert_form";
@@ -56,7 +58,9 @@ public class BoardController {
 		return "redirect:board_list";
 	}
 	
-	@RequestMapping("/board_list")
+	
+	
+	@RequestMapping("/board_list.do")
 	public String board_list(Model model){
 		//비즈니스 처리
 		List<Board> list = dao.listBoard();
@@ -66,6 +70,22 @@ public class BoardController {
 		return "list";
 		//뷰 이름 정하기
 	}
+	
+/*	@RequestMapping("detail.do")
+	public String detail(Model model){
+		
+		Board board = dao.getBoard(seq);
+		
+		model.addAttribute("board", board);
+		
+		return "board";
+		
+	}*/
+	
+	
+	
+	
+	
 
 	/*@InitBinder
 	protected void InitBinder(WebDataBinder binder){

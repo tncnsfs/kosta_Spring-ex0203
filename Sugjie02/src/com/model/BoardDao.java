@@ -21,6 +21,11 @@ public class BoardDao {
 		sqlTemplate.getMapper(BoardMapper.class).insertBoard(board);
 	}
 	
+	public void update(Board board){
+		sqlTemplate.getMapper(BoardMapper.class).updateBoard(board);
+	}
+	
+	
 	public List<Board> listBoard(){
 		return sqlTemplate.getMapper(BoardMapper.class).listBoard();
 	}

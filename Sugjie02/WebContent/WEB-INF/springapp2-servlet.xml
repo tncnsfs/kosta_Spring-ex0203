@@ -26,6 +26,8 @@
 	
 	</bean>
 	
+	
+	
 	<!-- MyBatis Setting(템플릿) -->
 	<!-- 최종적으로 필요한건 sqlsession템플릿 -->
 	<bean id="sqlSessionTemplate"
