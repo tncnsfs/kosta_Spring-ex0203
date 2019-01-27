@@ -21,17 +21,13 @@ public class BoardDao {
 		sqlTemplate.getMapper(BoardMapper.class).insertBoard(board);
 	}
 	
-	public void update(Board board){
-		sqlTemplate.getMapper(BoardMapper.class).updateBoard(board);
-	}
-	
 	
 	public List<Board> listBoard(){
 		return sqlTemplate.getMapper(BoardMapper.class).listBoard();
 	}
 	
-	public Board getBoard(int seq){
-		return sqlTemplate.getMapper(BoardMapper.class).getBoard(seq);
+	public Board detailBoard(int seq){
+		return sqlTemplate.getMapper(BoardMapper.class).detailBoard(seq);
 	}
 	
 	

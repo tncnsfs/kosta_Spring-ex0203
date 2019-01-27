@@ -10,7 +10,7 @@ public interface BoardMapper {
 	int deleteBoard(Board board);
 	
 	List<Board> listBoard();
-	Board getBoard(int seq);
+	Board detailBoard(int seq);
 }
 
 

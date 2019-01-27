@@ -58,38 +58,29 @@ public class BoardController {
 		return "redirect:board_list.do";
 	}
 	
-	@RequestMapping(value ="/detail.do", method= RequestMethod.POST)
-	public String detail(@ModelAttribute("boardCommand")int seq){
-		
-		Board board = dao.getBoard(seq);
-		
-		return "board";
-	}
 	
-	
-	
+//	@RequestMapping(value="/board_list.do", method=RequestMethod.GET)
 	@RequestMapping("/board_list.do")
 	public String board_list(Model model){
 		//비즈니스 처리
 		List<Board> list = dao.listBoard();
 		//데이터 가져오기
 		model.addAttribute("list", list);
-		
 		return "list";
-//		return 	"redirect:detail.do";
 		//뷰 이름 정하기
 	}
 	
 	
+//	@RequestMapping(value="/board_detail.do", method=RequestMethod.GET)
+	@RequestMapping("/board_detail.do")
+	public Board board_detail(Model model, int seq){
+		
+		Board board = dao.detailBoard(seq);
+		model.addAttribute("seq", seq);
+		
+		return board;
+	}
 	
 	
 	
-	
-	
-
-	/*@InitBinder
-	protected void InitBinder(WebDataBinder binder){
-		binder.setValidator(new BoardValidator());
-	}*/
-
 }

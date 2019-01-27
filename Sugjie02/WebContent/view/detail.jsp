@@ -7,23 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 	<ul>
 		<li>번호: ${board.seq }</li>
 		<li>제목: ${board.title }</li>
 		<li>작성자: ${board.writer }</li>		
 		<li>내용: ${board.contents }</li>
-		
-				<li><a
-			href="insert_form.do?board.seq=${board.seq }">등록</a>
-			<a href="update_form.do?board.seq=${board.seq }">수정</a>
-			<a href="delete.do?board.seq=${board.seq }">삭제</a>
-			<a href="board_list.do">
-			목록</a></li>
 	</ul>
-	
-	
-	
 </body>
 </html>
 

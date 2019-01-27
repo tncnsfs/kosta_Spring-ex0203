@@ -21,9 +21,13 @@
 		<c:forEach var="board" items="${list }">
 			<tr>
 				<td>${board.seq }</td>
-
-				<td><a href="detail.do?seq=${board.seq }"> ${board.title }
-				</a></td>
+					
+				<td>
+				<input type="hidden" name="seq">
+				<a href="board_detail.do?seq=${board.seq }"> 
+					${board.title }
+				</a>
+				</td>
 				<td>${board.writer }</td>
 				<td>${board.hitcount }</td>
 				<td>${board.regdate }</td>
