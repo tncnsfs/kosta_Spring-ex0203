@@ -38,7 +38,7 @@ public class BoardController {
 		//데이터타입이 string이라면 , Model에서 받는다. 즉, 데이터 받는방법 데이터타입2가지 : modelandview, string-model
 		model.addAttribute("title", "글쓰기2");
 		
-		return "insert_form";
+		return "insert_form";/*리턴값은 tiles-definitions 리턴값임 */
 	}
 	
 	@RequestMapping(value="/board_update.do", method=RequestMethod.GET)
@@ -70,7 +70,6 @@ public class BoardController {
 			System.out.println("에러 발생");
 			return "insert_form";
 			/*리턴값은 tiles-definitions 리턴값임 */
-			
 		}
 		dao.insertBoard(board);
 		
@@ -104,8 +103,7 @@ public class BoardController {
 		List<Board> list = dao.listBoard();
 		//데이터 가져오기
 		model.addAttribute("list", list);
-		
-		
+
 		return "list";
 		/*리턴값은 tiles-definitions 리턴값임 */
 		//뷰 이름 정하기
