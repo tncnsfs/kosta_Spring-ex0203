@@ -3,7 +3,7 @@
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="Sugjie02"/>
         <property name="java-output-path" value="/Sugjie02/build/classes"/>
+        <property name="context-root" value="Sugjie02_1"/>
     </wb-module>
 </project-modules>

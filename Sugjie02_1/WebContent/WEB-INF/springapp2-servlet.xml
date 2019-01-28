@@ -17,12 +17,9 @@
 	<mvc:annotation-driven />
 	<mvc:default-servlet-handler />
 	<!-- 컨트롤러에 없는 url이 요청되더라도 톰캣(was)가 실행할 수 잇다면 그냥 둬라. 즉, index.html도 실행 -->
-
 	<!-- <bean id="helloController" class="kosta.controller.HelloController"> 
 		<property name="service" ref="helloService"/> </bean> <bean id="helloService" 
 		class="kosta.service.HelloService"></bean> -->
-
-
 
 	<!--Transaction Setting -->
 	<bean id="transactionManager"

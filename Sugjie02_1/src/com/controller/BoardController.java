@@ -27,14 +27,15 @@ public class BoardController {
 	private BoardDao dao;
 	private String uploadDir = "D:/upload";
 	
-
-	/*
-	@RequestMapping(value="/insert_form.do", method=RequestMethod.GET)
-	public String insertform(Model model){ //데이터타입이 string이라면 , Model에서 받는다. 즉, 데이터 받는방법 데이터타입2가지 : modelandview, string-model
-		model.addAttribute("title", "글쓰기2");
-		
-		return "insert_form";
-	}*/
+	public BoardDao getDao() {
+		return dao;
+	}
+	
+	@Autowired
+	public void setDao(BoardDao dao) {
+		this.dao = dao;
+	}
+	
 	
 	/*@RequestMapping(value="/board_insert.do", method=RequestMethod.GET)*/
 	@RequestMapping(value="/board_insert", method=RequestMethod.GET)
@@ -44,15 +45,6 @@ public class BoardController {
 		
 		return "insert_form";/*리턴값은 tiles-definitions 리턴값임 */
 	}
-	
-	public BoardDao getDao() {
-		return dao;
-	}
-	@Autowired
-	public void setDao(BoardDao dao) {
-		this.dao = dao;
-	}
-	
 
 	/*@RequestMapping(value="/board_insert.do", method=RequestMethod.POST)*/
 	@RequestMapping(value="/board_insert", method=RequestMethod.POST)
@@ -82,8 +74,6 @@ public class BoardController {
 		return "redirect:board_list";
 	}
 	
-//	@RequestMapping(value="/board_list.do", method=RequestMethod.GET)
-	/*@RequestMapping("/board_list.do")*/
 	@RequestMapping("/board_list")
 	public String board_list(Model model){
 		//비즈니스 처리
@@ -98,9 +88,7 @@ public class BoardController {
 	
 	
 	
-	/*@RequestMapping("/board_detail.do")*/
 	@RequestMapping("/board_detail{seq}")
-	/*public String board_detail(@RequestParam("seq") int seq, Model model){*/
 	public String board_detail(@PathVariable int seq, Model model){
 		model.addAttribute("board", dao.getBoard(seq));
 		return "detail";
@@ -117,8 +105,6 @@ public class BoardController {
 		
 		return "downloadView";
 	}
-	
-
 	
 	
 	
@@ -137,6 +123,10 @@ public class BoardController {
 		return mv;
 	}*/
 	
-	
+	/*@InitBinder
+	protected void InitBinder(WebDataBinder binder){
+		binder.setValidator(new BoardValidator());
+	}*/
+
 	
 }
