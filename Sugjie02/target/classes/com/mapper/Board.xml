@@ -7,9 +7,9 @@
 
 	<insert id="insertBoard" parameterType="Board">
 		insert into board(
-		seq, title, writer, contents, regdate, hitcount
+		seq, title, writer, contents, regdate, hitcount, fname
 		)values(
-		board_seq.nextval, #{title}, #{writer}, #{contents}, sysdate, 0
+		board_seq.nextval, #{title}, #{writer}, #{contents}, sysdate, 0 ,#{fname}
 		)
 	</insert>
 

@@ -17,7 +17,20 @@
 		<property name="service" ref="helloService"/> </bean> <bean id="helloService" 
 		class="kosta.service.HelloService"></bean> -->
 
+	
 
+	<!-- File Up/Down Setting -->
+	<bean id="multipartResolver" 
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		</bean>
+
+	<!-- 컨테이너에 객체를 생성 완료 --> 
+	<bean id="downloadView" class="com.view.DownloadView"/>
+
+	<bean id="viewResolver3" 
+		class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<property name="order" value="1"/>
+	</bean>
 
 	<!-- Tiles Setting -->
 	<bean id="tilesConfigurer"
@@ -36,7 +49,7 @@
 		<property name="viewClass"
 			value="org.springframework.web.servlet.view.tiles3.TilesView" />
 		<!-- 우선순위 정하기 , 먼저 실행 -->
-		<property name="order" value="1" />
+		<property name="order" value="2" />
 	</bean>
 
 	<!--jsp는InternalResourceViewResolver => jsp 사용할때 -->
@@ -44,7 +57,7 @@
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/view/" />
 		<property name="suffix" value=".jsp" />
-		<property name="order" value="2" />
+		<property name="order" value="3" />
 	</bean>
 
 

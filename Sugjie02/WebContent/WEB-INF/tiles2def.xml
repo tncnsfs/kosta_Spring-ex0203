@@ -23,6 +23,14 @@
 		<put-attribute name="body" value="/view/detail.jsp"/>
 	</definition>
 	
+	<definition name="update_form" extends="base_layout">
+		<put-attribute name="body" value="/view/update_form.jsp"/>
+	</definition>
+	
+	<definition name="delete" extends="base_layout">
+		<put-attribute name="body"/>
+	</definition>
+	
 	
 	
 </tiles-definitions>
