@@ -120,6 +120,15 @@
 
 
 
+		<!-- Transaction 라이브러리 관련 ,,, https://mvnrepository.com/artifact/org.springframework/spring-tx -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>4.3.3.RELEASE</version>
+		</dependency>
+
+
+
 
 	</dependencies>
 </project>

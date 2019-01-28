@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.model.HelloService;
+import com.service.HelloService;
 
 @Controller //컨트롤러는 컨트롤러 어노테이션 필요
 public class HelloController {
