@@ -34,8 +34,12 @@ public class BoardDao {
 		return sqlTemplate.getMapper(BoardMapper.class).listBoard();
 	}
 	
-	public Board detailBoard(int seq){
+/*	public Board detailBoard(int seq){
 		return sqlTemplate.getMapper(BoardMapper.class).detailBoard(seq);
+	}*/
+	
+	public Board getBoard(int seq){
+		return sqlTemplate.getMapper(BoardMapper.class).getBoard(seq);
 	}
 	
 	

@@ -12,6 +12,9 @@ public interface BoardMapper {
 	Board detailBoard(int seq);
 	int updateBoard(Board board);
 	int deleteBoard(Board board);
+
+
+	Board getBoard(int seq);
 }
 
 

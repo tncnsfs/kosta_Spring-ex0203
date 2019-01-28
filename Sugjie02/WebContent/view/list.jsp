@@ -22,9 +22,9 @@
 		<c:forEach var="board" items="${list }">
 			<tr>
 				<td>${board.seq }</td>
-					
 				<td>
-				<a href="detail.do?seq=${board.seq }"> 
+				<%-- <a href="board_detail.do?seq=${board.seq }"> --%> 
+				<a href="board_detail${board.seq }"> 
 					${board.title }
 				</a>
 				</td>

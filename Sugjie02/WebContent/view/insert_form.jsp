@@ -18,7 +18,8 @@
 <body>
 <h3>${title }</h3>
 <hr>
-<form:form action="board_insert.do" method="post" commandName="boardCommand">
+<%-- <form:form action="board_insert.do" method="post" commandName="boardCommand"> --%>
+<form:form action="board_insert" method="post" commandName="boardCommand">
 	작성자 : <form:input type="text" path="writer"/>
 			<form:errors path="writer" cssClass="error"></form:errors><br>		
 			

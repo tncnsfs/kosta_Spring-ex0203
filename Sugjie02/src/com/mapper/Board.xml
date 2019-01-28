@@ -4,35 +4,42 @@
 
 <mapper namespace="com.mapper.BoardMapper">
 	<cache />
-	
+
 	<insert id="insertBoard" parameterType="Board">
 		insert into board(
-			seq, title, writer, contents, regdate, hitcount
+		seq, title, writer, contents, regdate, hitcount
 		)values(
-			board_seq.nextval, #{title}, #{writer}, #{contents}, sysdate, 0
+		board_seq.nextval, #{title}, #{writer}, #{contents}, sysdate, 0
 		)
 	</insert>
-	
-	<select id="listBoard" resultType="Board" >
+
+	<select id="listBoard" resultType="Board">
 		select * from board
 	</select>
-	
-	
+
+
 	<select id="detailBoard" parameterType="int" resultType="Board">
-		select * from board where seq = #{seq}
+		select *
+		from board where seq = #{seq}
 	</select>
-	
-	
-	
+
+
+
 	<update id="updateBoard" parameterType="Board">
-		update board set title=#{title}, contents=#{contents}
-			where seq = #{seq}
-	</update> 
-	
+		update board set
+		title=#{title}, contents=#{contents}
+		where seq = #{seq}
+	</update>
+
 	<delete id="deleteBoard" parameterType="Board">
-		delete from board 
+		delete from board
 		where seq = #{seq}
 	</delete>
+
+	<select id="getBoard" parameterType="int" resultType="Board">
+		select *
+		from board where seq = #{seq}
+	</select>
 
 
 </mapper>
