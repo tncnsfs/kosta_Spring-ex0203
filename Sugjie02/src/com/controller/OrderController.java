@@ -15,6 +15,7 @@ import com.service.OrderService;
 public class OrderController {
 
 	private OrderService service;
+	
 	@Autowired
 	public void setService(OrderService service){
 		this.service = service;
@@ -27,7 +28,7 @@ public class OrderController {
 	}
 	
 	@RequestMapping("order")
-	public String orderDao(Order order){
+	public String orderDo(Order order){
 		String view = "transaction/orderOk";
 		
 		try {

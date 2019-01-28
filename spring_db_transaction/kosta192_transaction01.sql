@@ -14,7 +14,7 @@
 --  
 --)
 --
---insert into item values('100', 'pc', 50000, 100);
+insert into item values('100', 'pc', 50000, 100);
 
 
   

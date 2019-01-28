@@ -25,7 +25,6 @@ public class OrderService {
 	}
 
 	@Transactional(propagation=Propagation.REQUIRED, rollbackFor ={Exception.class})
-	
 	public void orderAction(Order order)throws Exception{ // 한 서비스가 트랜잭션 단위..커밋/롤백 
 		orderDao.addOrder(order); //주문 등록
 
