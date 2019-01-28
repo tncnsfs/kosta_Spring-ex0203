@@ -4,6 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+/*import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;*/
+
 import com.model.Order;
 import com.service.OrderService;
 
@@ -24,7 +28,7 @@ public class OrderController {
 	
 	@RequestMapping("order")
 	public String orderDao(Order order){
-		String view = "transaction/orderOK";
+		String view = "transaction/orderOk";
 		
 		try {
 			service.orderAction(order);
