@@ -1,6 +1,7 @@
  package com.controller;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.jws.WebParam.Mode;
@@ -81,15 +82,11 @@ public class BoardController {
 		return "redirect:board_list";
 	}
 	
-	
-	
-	
 //	@RequestMapping(value="/board_list.do", method=RequestMethod.GET)
 	/*@RequestMapping("/board_list.do")*/
 	@RequestMapping("/board_list")
 	public String board_list(Model model){
 		//비즈니스 처리
-		
 		List<Board> list = dao.listBoard();
 		//데이터 가져오기
 		model.addAttribute("list", list);
@@ -98,6 +95,8 @@ public class BoardController {
 		/*리턴값은 tiles-definitions 리턴값임 */
 		//뷰 이름 정하기
 	}
+	
+	
 	
 	/*@RequestMapping("/board_detail.do")*/
 	@RequestMapping("/board_detail{seq}")
@@ -109,6 +108,7 @@ public class BoardController {
 	}
 	
 	
+//	파일 다운로드 
 	@RequestMapping("board_download")
 	public String board_download(@RequestParam("fname") String filename, Model model)throws Exception{
 		
@@ -117,6 +117,9 @@ public class BoardController {
 		
 		return "downloadView";
 	}
+	
+
+	
 	
 	
 /*	@RequestMapping("/detail.do")

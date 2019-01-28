@@ -1,5 +1,7 @@
 package com.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +18,19 @@ public class HelloController {
 		public void setService(HelloService service) {
 			this.service = service;
 		}
+	
+	
+	@RequestMapping("/client2")
+	public String boardJson(){
+		return "client2";
+	}
+		
+	@RequestMapping("/client")
+	public String client(){
+		return "client";
+	}
+	
+	
 	
 	@RequestMapping("/hello.do") //어노테이션으로 매핑
 	public ModelAndView hello() {
