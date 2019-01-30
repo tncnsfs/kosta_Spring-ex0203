@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ex01_01
+Bundle-SymbolicName: ex01_01
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: ex01_01.jar,
+ lib/ojdbc6.jar
+Export-Package: org.zerock.controller,
+ org.zerock.domain,
+ org.zerock.mapper,
+ org.zerock.persistence,
+ org.zerock.sample,
+ org.zerock.sample.SampleTests
