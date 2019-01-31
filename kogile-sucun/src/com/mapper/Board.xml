@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mapper.BoardMapper">
+	<cache />
+
+	<insert id="insertchecklist" parameterType="Board">
+		insert into checklist
+		values(checklist_seq.nextval, #{check_title}, #{p_no})
+	</insert>
+
+
+	<select id="checklistBoard" resultType="Board">
+		select * from checklist
+		order by checklist_no desc
+	</select>
+
+
+	<select id="detailBoard" resultType="Board" parameterType="int">
+		select * from checklist 
+		where checklist_no = #{checklist_no}
+	</select>
+
+
+	<update id="updateBoard" parameterType="Board">
+		update checklist set
+		check_title = #{check_title}
+		where checklist_no = #{checklist_no}
+	</update>
+
+
+
+	<delete id="deleteBoard" parameterType="Board">
+		delete from checklist
+		where checklist_no=#{checklist_no}
+	</delete>
+
+
+</mapper>

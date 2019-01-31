@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<context:annotation-config />
+	<context:component-scan base-package="com"></context:component-scan>
+
+	<mvc:annotation-driven />
+	<mvc:default-servlet-handler />
+	<!-- 컨트롤러에 없는 url이 요청되더라도 톰캣(was)가 실행할 수 잇다면 그냥 둬라. 즉, index.html도 실행 -->
+	<!-- <bean id="helloController" class="kosta.controller.HelloController"> 
+		<property name="service" ref="helloService"/> </bean> <bean id="helloService" 
+		class="kosta.service.HelloService"></bean> -->
+
+	<!--Transaction Setting -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	<!-- AOP Setting -->
+	<aop:aspectj-autoproxy />
+	<bean id="sessionAspect" class="com.controller.SessionAspect"></bean>
+
+	<!-- File Up/Down Setting -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	</bean>
+
+	<!-- 컨테이너에 객체를 생성 완료 -->
+	<bean id="downloadView" class="com.view.DownloadView" />
+
+	<bean id="viewResolver3"
+		class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<property name="order" value="1" />
+	</bean>
+
+	<!-- Tiles Setting -->
+	<bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/tiles2def.xml</value>
+			</list>
+		</property>
+	</bean>
+
+
+	<!-- tiles 형식의 view 타입을 사용할때 -->
+	<bean id="viewResolver2"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.tiles3.TilesView" />
+		<!-- 우선순위 정하기 , 먼저 실행 -->
+		<property name="order" value="2" />
+	</bean>
+
+	<!--jsp는InternalResourceViewResolver => jsp 사용할때 -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/view/" />
+		<property name="suffix" value=".jsp" />
+		<property name="order" value="3" />
+	</bean>
+
+
+	<!-- MyBatis Setting(템플릿) -->
+	<!-- 최종적으로 필요한건 sqlsession템플릿 -->
+	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" /> <!-- ref는 밑의 bean id에서 오는 것. -->
+	</bean>
+
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="configLocation" value="/WEB-INF/mybatis-config.xml" />
+	</bean>
+
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="jdbc/oracle" />
+		<property name="resourceRef" value="true" />
+	</bean>
+
+
+</beans>

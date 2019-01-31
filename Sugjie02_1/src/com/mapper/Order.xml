@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="kosta.mapper.OrderMapper">
+	<cache />
+	
+	<insert id="addOrder" parameterType="Order">
+		insert into order2(
+			NO, NAME, PRICE, AMOUNT
+		)
+		values(
+			#{no}, #{name}, #{price}, #{amount}
+		)
+	</insert>
+	
+	<update id="updateItem" parameterType="Order">
+		update item set amount = amount - #{amount}
+			where no = #{no}
+	</update>
+	
+	<select id="findItem" resultType="Item" parameterType="String">
+		select * from item where no = #{no}
+	</select>
+
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
