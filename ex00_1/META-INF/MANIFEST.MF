@@ -1,8 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: ex00
-Bundle-SymbolicName: ex00_1
-Bundle-Version: 1.0.0.qualifier
-Export-Package: org.zerock.controller,
- org.zerock.sample,
- org.zerock.sample.SampleTests
