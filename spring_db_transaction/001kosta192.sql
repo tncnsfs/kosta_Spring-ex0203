@@ -31,6 +31,24 @@ bno,title,content,writer,regdate,updatedate from tbl_board;
 select last_number from SYS.USER_SEQUENCES where SEQUENCE_NAME = 'seq_board';
 alter sequence seq_board increment by -787488;
 
+-- 댓글 생성하는 중인가요 , 댓글 테이블 생성 
+create table tbl_reply(
+  rno number(10,0),
+  bno number(10,0) not null,
+  reply varchar2(1000) not null,
+  replyer varchar2(50) not null,
+  replyDate date default sysdate,
+  updateDate date default sysdate
+);
+
+create sequence seq_reply;
+
+alter table tbl_reply add CONSTRAINT pk_reply primary key (rno);
+
+alter table tbl_reply add CONSTRAINT fk_reply_board
+foreign key(bno) REFERENCES tbl_board(bno);
+
+
 
 
 
