@@ -2,6 +2,7 @@ package org.zerock.mapper;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
 import java.util.stream.IntStream;
 
 import org.junit.Test;
@@ -9,6 +10,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.zerock.domain.Criteria;
 import org.zerock.domain.ReplyVO;
 
 import lombok.Setter;
@@ -24,7 +26,18 @@ public class ReplyMapperTests {
 	@Setter(onMethod_=@Autowired)
 	private ReplyMapper mapper;
 	
+	
+	// 게시물 댓글을 조회 하기 시작 
 	@Test
+	public void testList(){
+		Criteria cri = new Criteria();
+		// 31 번 bno 한번 해보잠 
+		List<ReplyVO> replies = mapper.getListWithPaging(cri, bnoArr[4]);
+		
+		replies.forEach(reply -> log.info("GoGo" + reply));
+	}
+	
+/*	@Test
 	public void testUpdate(){
 		Long targetRno = 10L;
 		
@@ -37,7 +50,7 @@ public class ReplyMapperTests {
 		log.info("UPDATE COUNT: " + count);
 		
 		mapper.update(vo);
-	}
+	}*/
 	
 /*	@Test
 	public void testDelete(){
