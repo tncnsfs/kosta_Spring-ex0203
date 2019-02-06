@@ -1,7 +1,7 @@
 console.log("Reply Module........");
 
 var replyService = (function() {
-
+	
 	function add(reply, callback, error) {
 		console.log("add reply...............");
 
@@ -23,43 +23,43 @@ var replyService = (function() {
 		})
 	}
 
-//	function getList(param, callback, error) {
-//
-//		var bno = param.bno;
-//		var page = param.page || 1;
-//
-//		$.getJSON("/replies/pages/" + bno + "/" + page + ".json",
-//				function(data) {
-//					if (callback) {
-//						callback(data);
-//					}
-//				}).fail(function(xhr, status, err) {
-//			if (error) {
-//				error();
-//			}
-//		});
-//	}
-	
-	
-
 	function getList(param, callback, error) {
 
-	    var bno = param.bno;
-	    var page = param.page || 1;
-	    
-	    $.getJSON("/replies/pages/" + bno + "/" + page + ".json",
-	        function(data) {
-	    	
-	          if (callback) {
-	            //callback(data); // 댓글 목록만 가져오는 경우 
-	            callback(data.replyCnt, data.list); //댓글 숫자와 목록을 가져오는 경우 
-	          }
-	        }).fail(function(xhr, status, err) {
-	      if (error) {
-	        error();
-	      }
-	    });
-	  }
+		var bno = param.bno;
+		var page = param.page || 1;
+
+		$.getJSON("/replies/pages/" + bno + "/" + page + ".json",
+				function(data) {
+					if (callback) {
+						callback(data);
+					}
+				}).fail(function(xhr, status, err) {
+			if (error) {
+				error();
+			}
+		});
+	}
+	
+	
+
+//	function getList(param, callback, error) {
+//
+//	    var bno = param.bno;
+//	    var page = param.page || 1;
+//	    
+//	    $.getJSON("/replies/pages/" + bno + "/" + page + ".json",
+//	        function(data) {
+//	    	
+//	          if (callback) {
+//	            //callback(data); // 댓글 목록만 가져오는 경우 
+//	            callback(data.replyCnt, data.list); //댓글 숫자와 목록을 가져오는 경우 
+//	          }
+//	        }).fail(function(xhr, status, err) {
+//	      if (error) {
+//	        error();
+//	      }
+//	    });
+//	  }
 
 	
 	function remove(rno, callback, error) {
@@ -142,10 +142,10 @@ var replyService = (function() {
 			return [ yy, '/', (mm > 9 ? '' : '0') + mm, '/',
 					(dd > 9 ? '' : '0') + dd ].join('');
 		}
-	}
-	;
+	};
 
 	return {
+		name: "AAAA",
 		add : add,
 		get : get,
 		getList : getList,
@@ -154,4 +154,6 @@ var replyService = (function() {
 		displayTime : displayTime
 	};
 
+
+	
 })();
