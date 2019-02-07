@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,29 +30,6 @@ public class ReplyContorller {
 	private ReplyService service;
 	
 	
-	// 댓글 수정 
-	@RequestMapping(method = { RequestMethod.PUT, RequestMethod.PATCH},
-					value= "/{rno}",
-					consumes = "application/json",
-					produces = {MediaType.TEXT_PLAIN_VALUE})
-	public ResponseEntity<String> modify(
-					@PathVariable("vo") ReplyVO vo,
-					@PathVariable("rno") Long rno
-			){
-		
-			vo.setRno(rno);
-			log.info("rno:" + rno);
-			
-			log.info("modify: " + vo);
-			
-			
-			return service.modify(vo) == 1
-					? new ResponseEntity<>("success", HttpStatus.OK)
-					: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-		
-	}
-	
-	
 	// 조회하기 
 	@GetMapping(value = "/{rno}",
 			produces= {
@@ -68,11 +46,11 @@ public class ReplyContorller {
 	
 	
 	// 삭제하기 
-	@GetMapping(value = "/{rno}",
+	@DeleteMapping(value = "/{rno}",
 			produces = {
 					MediaType.TEXT_PLAIN_VALUE
 			})
-	public ResponseEntity<String> remove(Long rno){
+	public ResponseEntity<String> remove(@PathVariable("rno") Long rno){
 		
 		log.info("remove: " +  rno);
 		
@@ -81,6 +59,30 @@ public class ReplyContorller {
 				: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		
 	}
+	
+	// 댓글 수정 
+	@RequestMapping(method = { RequestMethod.PUT, RequestMethod.PATCH},
+					value= "/{rno}",
+					consumes = "application/json",
+					produces = {MediaType.TEXT_PLAIN_VALUE})
+	public ResponseEntity<String> modify(
+					@RequestBody ReplyVO vo,
+					@PathVariable("rno") Long rno
+			){
+		
+			vo.setRno(rno);
+			log.info("rno:" + rno);
+			
+			log.info("modify: " + vo);
+			
+			
+			return service.modify(vo) == 1
+					? new ResponseEntity<>("success", HttpStatus.OK)
+					: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		
+	}
+	
+	
 	
 	
 	
