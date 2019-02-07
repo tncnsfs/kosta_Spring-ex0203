@@ -50,6 +50,16 @@ insert into tbl_board (bno, title, content, writer)
 (select seq_board.nextval, title, content, writer from tbl_board);
 commit;
 
+create index idx_reply on tbl_reply(bno desc, rno asc);
+
+select /*+index(tbl_reply idx_reply)*/
+  rownum rn, bno, rno, reply, replyer, replyDate, updatedate
+  from tbl_reply
+  where bno = 8
+  and rno > 0;
+  
+  select * from tbl_reply;
+
 
 create table tbl_attach ( 
   uuid varchar2(100) not null,
