@@ -21,24 +21,13 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 public class ReplyMapperTests {
 	
-	private Long[] bnoArr = {7L, 8L, 9L, 10L, 11L};
+	private Long[] bnoArr = {27L, 28L, 29L, 30L, 31L};
 
 	@Setter(onMethod_=@Autowired)
 	private ReplyMapper mapper;
 	
 	
 	// 게시물 댓글을 조회 하기 시작 
-/*	@Test
-	public void testList2(){
-		Criteria cri = new Criteria(2, 5);
-
-		// bno = 8 번 조회 
-		List<ReplyVO> replies = mapper.getListWithPaging(cri, bnoArr[1]);
-		
-		replies.forEach(reply -> log.info("GoGo" + reply));
-	}*/
-	
-/*	// 게시물 댓글을 조회 하기 시작 
 	@Test
 	public void testList(){
 		Criteria cri = new Criteria();
@@ -47,7 +36,7 @@ public class ReplyMapperTests {
 		
 		replies.forEach(reply -> log.info("GoGo" + reply));
 	}
-*/	
+	
 /*	@Test
 	public void testUpdate(){
 		Long targetRno = 10L;
@@ -79,23 +68,22 @@ public class ReplyMapperTests {
 	}*/
 	
 	
-/*	@Test
+	/*@Test
 	public void testCreate() {
 		
 		IntStream.rangeClosed(1, 10).forEach(i -> {
 			
 			ReplyVO vo = new ReplyVO();
 			
-//			vo.setBno(bnoArr[i%5]);
-			vo.setBno(bnoArr[1]);
+			vo.setBno(bnoArr[i%5]);
 			vo.setReply("댓글 테스트 " + i);
 			vo.setReplyer("replyer" + i);
 			
 			mapper.insert(vo);
 		});
-	}*/
+	}
 	
-	/*	@Test
+	@Test
 	public void test() {
 		log.info(mapper);
 	}*/
