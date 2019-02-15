@@ -28,7 +28,7 @@ public class ReplyMapperTests {
 	
 	
 	// 게시물 댓글을 조회 하기 시작 
-/*	@Test
+	@Test
 	public void testList2(){
 		Criteria cri = new Criteria(2, 5);
 
@@ -36,7 +36,7 @@ public class ReplyMapperTests {
 		List<ReplyVO> replies = mapper.getListWithPaging(cri, bnoArr[1]);
 		
 		replies.forEach(reply -> log.info("GoGo" + reply));
-	}*/
+	}
 	
 /*	// 게시물 댓글을 조회 하기 시작 
 	@Test
